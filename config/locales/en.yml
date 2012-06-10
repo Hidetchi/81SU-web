@@ -3,8 +3,27 @@
 
 en:
   hello: "Hello world"
+  
+  errors:
+    format: "%{attribute} %{message}"
+  
   activerecord:
+    errors:
+      template:
+        header:
+          one:   "An error occurred in %{model}."
+          other: "%{count} errors occurred in %{model}."
+        body: "Please check the following points."
+        
+      messages:
+        too_long: "must be no longer than %{count} characters."
+        too_short: "must be no shorter than %{count} characters."
+      
+      full_messages:
+        format: "%{attribute} %{message}"
+        
     attributes:
       player:
         login: "Nickname"
         rate: "Rating"
+        
