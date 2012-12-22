@@ -5,11 +5,11 @@
 
 <%= error_messages_for :player %>
 <% form_for :player, :url => players_path do |f| -%>
-<table border="1" cellspacing="0" cellpadding="5" align="center">
+<table border="1" cellspacing="0" cellpadding="5" align="center" style="line-height: 1.3;">
 <tr>
 <td><b>81Dojo Nickname</b><br><font size="-1">(ハンドルネーム)</font><td><%= f.text_field :login %>
 <tr>
-<td><b><%= label_tag 'country' %></b><br><font size="-1">(国名 ※日本はJapanを)</font><td><%= f.collection_select :country_id, Country.find(:all), :id, :name %>
+<td><b><%= label_tag 'country' %></b><br><font size="-1">(国名 ※日本はJapanのまま)</font><td><%= f.collection_select :country_id, Country.find(:all), :id, :name, :selected => 109 %>
 <tr>
 <td><b>Rank</b><br><font size="-1">(段級位)</font><td><%= f.select :rate, [["3-Dan",1300],["2-Dan",1200],["1-Dan",1100],["3-kyu",950],["6-kyu",800],["9-kyu",650]], :selected => 1100 %>
 <tr>
