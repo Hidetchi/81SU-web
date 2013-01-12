@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  background-color :#EEEE88;
+  background-color :#FFFCD7;
 }
 
 .container {
@@ -9,4 +9,8 @@ body {
   text-align:left;
   width:400px;
   background-color:#FFFFFF;
+}
+
+td.header {
+  background-color:#FFDDAA;
 }

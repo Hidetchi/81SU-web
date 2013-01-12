@@ -1,24 +1,23 @@
-<h1 style="font-family:Palatino Linotype;"><u>Sign up as a new user!</u></h1>
-<h3>新規登録(無料で今すぐ対局可能)</h3>
-<br><br>
+<h2 style="font-family:Palatino Linotype;"><u>Sign up as a new user!</u></h2>
+<h4>新規登録 (無料で今すぐ対局可能)</h4>
 <% @player.password = @player.password_confirmation = nil %>
 
 <%= error_messages_for :player %>
 <% form_for :player, :url => players_path do |f| -%>
-<table border="1" cellspacing="0" cellpadding="5" align="center" style="line-height: 1.3;">
+<table border="1" bordercolor="#aa9" cellspacing="0" cellpadding="5" align="center" style="line-height: 1.3;">
 <tr>
-<td><b>81Dojo Nickname</b><br><font size="-1">(ハンドルネーム)</font><td><%= f.text_field :login %>
+<td class="header"><b>81Dojo Nickname</b><br><font size="-1">(ハンドルネーム)</font><td><%= f.text_field :login %>
 <tr>
-<td><b><%= label_tag 'country' %></b><br><font size="-1">(国名 ※日本はJapanのまま)</font><td><%= f.collection_select :country_id, Country.find(:all), :id, :name, :selected => 109 %>
+<td class="header"><b><%= label_tag 'country' %></b><br><font size="-1">(国名 ※日本はJapanのまま)</font><td><%= f.collection_select :country_id, Country.find(:all), :id, :name, :selected => 109 %>
 <tr>
-<td><b>Rank</b><br><font size="-1">(段級位)</font><td><%= f.select :rate, [["3-Dan",1300],["2-Dan",1200],["1-Dan",1100],["3-kyu",950],["6-kyu",800],["9-kyu",650]], :selected => 1100 %>
+<td class="header"><b>Rank</b><br><font size="-1">(段級位)</font><td><%= f.select :rate, [["3-Dan",1300],["2-Dan",1200],["1-Dan",1100],["3-kyu",950],["6-kyu",800],["9-kyu",650]], :selected => 1100 %>
 <tr>
-<td><b><%= label_tag 'email' %></b><br><font size="-1">(メールアドレス)</font><td><%= f.text_field :email %>
+<td class="header"><b><%= label_tag 'email' %></b><br><font size="-1">(メールアドレス)</font><td><%= f.text_field :email %>
 <tr>
-<td><b><%= label_tag 'password' %></b><br><font size="-1">(パスワード)</font><td><%= f.password_field :password %>
+<td class="header"><b><%= label_tag 'password' %></b><br><font size="-1">(パスワード)</font><td><%= f.password_field :password %>
 <tr>
-<td><b><%= label_tag 'password_confirmation' %></b><br><font size="-1">(パスワード再入力)</font><td><%= f.password_field :password_confirmation %>
+<td class="header"><b><%= label_tag 'password_confirmation' %></b><br><font size="-1">(パスワード再入力)</font><td><%= f.password_field :password_confirmation %>
 </table>
 
-<p><%= submit_tag 'Sign up' %><br><font size="-1">(送信)</font></p>
+<p><%= submit_tag 'Sign up', :style => 'width:100px; height:40px; font-size:14pt;' %><br><font size="-1">(登録)</font></p>
 <% end -%>
