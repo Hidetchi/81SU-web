@@ -10,7 +10,7 @@
 <tr>
 <td class="header"><b><%= label_tag 'country' %></b><br><font size="-1">(国名 ※日本はJapanのまま)</font><td><%= f.collection_select :country_id, Country.find(:all), :id, :name, :selected => 109 %>
 <tr>
-<td class="header"><b>Rank</b><br><font size="-1">(段級位)</font><td><%= f.select :rate, [["3-Dan",1300],["2-Dan",1200],["1-Dan",1100],["3-kyu",950],["6-kyu",800],["9-kyu",650]], :selected => 1100 %>
+<td class="header"><b>Rank</b><br><font size="-1">(段級位)</font><td><%= f.select :rate, [["5-Dan",2025],["4-Dan",1875],["3-Dan",1750],["2-Dan",1650],["1-Dan",1550],["1-kyu",1465],["2-kyu",1390],["3-kyu",1325],["5-kyu",1225],["7-kyu",1125],["9-kyu",1025],["10-kyu",950],["12-kyu",750],["14-kyu",550]], :selected => 1550 %>
 <tr>
 <td class="header"><b><%= label_tag 'email' %></b><br><font size="-1">(メールアドレス)</font><td><%= f.text_field :email %>
 <tr>
