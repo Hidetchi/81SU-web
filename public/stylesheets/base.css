@@ -1,6 +1,7 @@
 body {
   text-align: center;
-  background-color :#FFFCD7;
+  background-color :#FFFDEE;
+  font-family: Meiryo UI;
 }
 
 .container {
@@ -12,5 +13,5 @@ body {
 }
 
 td.header {
-  background-color:#FFDDAA;
+  background-color:#DDFFDD;
 }

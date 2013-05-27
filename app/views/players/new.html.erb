@@ -1,10 +1,10 @@
-<h2 style="font-family:Palatino Linotype;"><u>Sign up as a new user!</u></h2>
-<h4>新規登録 (無料で今すぐ対局可能)</h4>
+<h2><u>Sign up as a new user</u></h2>
+<h4>新規無料登録 (登録後すぐ対局出来ます)</h4>
 <% @player.password = @player.password_confirmation = nil %>
 
 <%= error_messages_for :player %>
 <% form_for :player, :url => players_path do |f| -%>
-<table border="1" bordercolor="#aa9" cellspacing="0" cellpadding="5" align="center" style="line-height: 1.3;">
+<table border="1" bordercolor="#888" cellspacing="0" cellpadding="5" align="center" style="line-height: 1.3;">
 <tr>
 <td class="header"><b>81Dojo Nickname</b><br><font size="-1">(ハンドルネーム)</font><td><%= f.text_field :login %>
 <tr>
