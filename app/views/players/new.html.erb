@@ -10,7 +10,7 @@
 <tr>
 <td class="header"><b><%= label_tag 'country' %></b><br><font size="-1">(国名 ※日本はJapanのまま)</font><td><%= f.collection_select :country_id, Country.find(:all), :id, :name, :selected => 109 %>
 <tr>
-<td class="header"><b>Rank</b><br><font size="-1">(段級位)</font><td><%= f.select :rate, [["5-Dan",2025],["4-Dan",1875],["3-Dan",1750],["2-Dan",1650],["1-Dan",1550],["1-kyu",1465],["2-kyu",1390],["3-kyu",1325],["5-kyu",1225],["7-kyu",1125],["9-kyu",1025],["10-kyu",950],["12-kyu",750],["14-kyu",550]], :selected => 1550 %>
+<td class="header"><b>Rank</b><br><font size="-1">(段級位)</font><td><%= f.select :rate, [["5-Dan",2025],["4-Dan",1925],["3-Dan",1850],["2-Dan",1800],["1-Dan",1700],["1-kyu",1600],["2-kyu",1500],["3-kyu",1450],["5-kyu",1350],["7-kyu",1250],["9-kyu",1100],["10-kyu",950],["12-kyu",750],["14-kyu",550]], :selected => 1700 %>
 <tr>
 <td class="header"><b><%= label_tag 'email' %></b><br><font size="-1">(メールアドレス)</font><td><%= f.text_field :email %>
 <tr>
