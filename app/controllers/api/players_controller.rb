@@ -113,7 +113,8 @@ class Api::PlayersController < ApplicationController
   end
   
   def detail
-    @player = Player.find(:all, :conditions => ['login = ?',params[:name]])
+    @player = Player.find(:first, :conditions => ['login = ?',params[:name]])
+    @player = Array.new if (!@player)
 
     respond_to do |format|
       format.xml  { render :xml => @player.to_xml(:only => [
