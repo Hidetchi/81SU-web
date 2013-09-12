@@ -1,5 +1,9 @@
 <h2>Hello, <%= @player.name %>. </h2><br/>
-<div style="color:green"><%= flash[:notice] %></div>
+<div style="color:green"><%= flash[:notice] %>
+<% if (flash[:notice] && flash[:notice].match(/^Thanks\sfor\ssigning/)) %>
+<br>(仮登録ありがとうございます。本登録への認証用のメールをお送りしました。)
+<% end %>
+</div>
 
 <div class="container">
 <table width=100% border="1" bordercolor="#888" cellspacing="0" cellpadding="5" align="center">
@@ -13,9 +17,3 @@
 </div>
 <div style="font-size:24px"><%= link_to 'Edit',edit_player_path(@player) %></div>
 <div style="font-size:15px; margin-top:5px;">(登録情報の変更)</div>
-<br>
-<div style="font-size:24px"><%= link_to 'Go Play at 81Dojo', 'http://81dojo.com/client.html',:target => '_top' %></div>
-<div style="font-size:15px; margin-top:5px; line-height:1.4;">(国際対局場へ)<br>[<%= link_to '日本語専用アプリはこちらから', 'http://81dojo.com/client_jp.html',:target => '_top' %>]</div>
-<br>
-
-<%= link_to 'Log Out','/' %>
