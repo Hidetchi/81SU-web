@@ -68,9 +68,10 @@ class PlayersController < ApplicationController
       # protection if visitor resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
       # reset session
+      Notification.deliver_registered(@player)
       self.current_player = @player # !! now logged in
       redirect_back_or_default(@player)
-      flash[:notice] = "Thanks for signing up!"
+      flash[:notice] = "Thanks for signing up! Your account is not activated yet.<br>You will shortly receive an e-mail about the activation process."
     else
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
       render :action => 'new'

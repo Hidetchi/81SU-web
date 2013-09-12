@@ -194,6 +194,20 @@ class Api::PlayersController < ApplicationController
     end
   end
 
+  def activate
+    @player = Player.find(:first, :conditions => ['login = ?',params[:code1]])
+    if (!@player || @player.salt[20,20] != params[:code2])
+      render "activate_error"
+    else
+      if (@player.auth_token == 'activated') then
+        @already = true
+      else
+	@already = false
+        @player.update_attribute(:auth_token, 'activated')
+      end
+    end
+  end
+
   def authenticate
     logout_keeping_session!
     if @player = Player.authenticate(params[:login], params[:password])
