@@ -124,6 +124,22 @@ class Api::PlayersController < ApplicationController
     end
   end
   
+  def blogparts
+    @player = Player.find(:first, :conditions => ['login = ?',params[:name].downcase])
+    @player = Array.new if (!@player)
+
+    respond_to do |format|
+      format.xml  { render :xml => @player.to_xml(:only => [
+        :rate, :wins, :losses, :style_id]) }
+    end
+  end
+
+  def setStyleId
+    @player = Player.find(:first, :conditions => ['login = ?',params[:name]])
+    @player.update_attribute(:style_id, params[:styleId]) if (@player)
+    render :nothing => true
+  end
+
   def ranking
     if (params[:country_id] == "*")
       conditions = 'players.updated_at >= ? and (players.wins + players.losses) >= ? and players.show_ranking = ?'
