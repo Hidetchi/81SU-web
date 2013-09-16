@@ -1,5 +1,5 @@
 Afghanistan,4
-Åland Islands,248
+Aland Islands,248
 Albania,8
 Algeria,12
 American Samoa,16
@@ -51,7 +51,7 @@ Congo Republic,178
 Congo Democratic Republic,180
 Cook Islands,184
 Costa Rica,188
-Côte d'Ivoire,384
+Cote d'Ivoire,384
 Croatia,191
 Cuba,192
 Cyprus,196
@@ -126,7 +126,7 @@ Liechtenstein,438
 Lithuania,440
 Luxembourg,442
 Macao,446
-Macedonia,807
+Macedonia (Former Yugoslav Republic of),807
 Madagascar,450
 Malawi,454
 Malaysia,458
@@ -176,11 +176,11 @@ Poland,616
 Portugal,620
 Puerto Rico,630
 Qatar,634
-Réunion,638
+Reunion,638
 Romania,642
 Russia,643
 Rwanda,646
-Saint Barthélemy,652
+Saint Barthelemy,652
 Saint Helena/Ascension/Tristan da Cunha,654
 Saint Kitts and Nevis,659
 Saint Lucia,662
