@@ -84,6 +84,10 @@ class Api::KifusController < ApplicationController
   end
   
   def search
+    unless (request.referer && request.referer.match(/81dojo\.com/))
+      render :nothing => true
+      return
+    end
     @kifus = Array.new
     if (params[:opponent_name] == "*")
       conditions = 'kifus.updated_at >= ? and kifus.updated_at <= ? and ((whites_kifus.login = ? and whites_kifus.id = kifus.whiteid) or (players.login = ? and players.id = kifus.blackid))'
