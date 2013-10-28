@@ -13,6 +13,10 @@ class Api::KifusController < ApplicationController
   # GET /kifus/1
   # GET /kifus/1.xml
   def show
+    unless (request.referer && request.referer.match(/81dojo\.com/))
+      render :nothing => true
+      return
+    end
     @kifu = Kifu.find(params[:id])
 
     respond_to do |format|
