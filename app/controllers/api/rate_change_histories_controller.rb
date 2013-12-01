@@ -84,10 +84,14 @@ class Api::RateChangeHistoriesController < ApplicationController
   end
 
   def search
+    params[:total] = 1000 if (params[:total].to_i >= 300)
     @rate_change_histories = Array.new
     @rate_change_histories = RateChangeHistory.find(:all, :order => "rate_change_histories.id DESC",
                        :conditions => ["players.login = ?",params[:name]],
                        :include => :player, :limit => params[:total])
+    while (@rate_change_histories.length > 300) do
+      @rate_change_histories.pop.destroy
+    end
 
     respond_to do |format|
       format.xml
