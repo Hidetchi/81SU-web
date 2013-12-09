@@ -94,15 +94,22 @@ class Api::KifusController < ApplicationController
     end
     @kifus = Array.new
     if (params[:opponent_name] == "*")
-      conditions = 'kifus.updated_at >= ? and kifus.updated_at <= ? and ((whites_kifus.login = ? and whites_kifus.id = kifus.whiteid) or (players.login = ? and players.id = kifus.blackid))'
-      @kifus = Kifu.find(:all,
-                         :conditions => [conditions,params[:begin_date],params[:end_date],params[:player_name],params[:player_name]],
-                         :include => [:black,:white],:limit => 101)
+      @player = Player.find(:first, :conditions => ['login = ?',params[:player_name]])
+      if (@player)
+      	conditions = 'kifus.updated_at >= ? and kifus.updated_at <= ? and (kifus.blackid = ? or kifus.whiteid = ?)'
+      	@kifus = Kifu.find(:all,
+                           :conditions => [conditions,params[:begin_date],params[:end_date],@player.id,@player.id],
+                           :limit => 101)
+      end
     else
-      conditions = 'kifus.updated_at >= ? and kifus.updated_at <= ? and (((whites_kifus.login = ? and whites_kifus.id = kifus.whiteid) and (players.login = ? and players.id = kifus.blackid)) or ((whites_kifus.login = ? and whites_kifus.id = kifus.whiteid) and (players.login = ? and players.id = kifus.blackid)))'
-      @kifus = Kifu.find(:all,
-                         :conditions => [conditions,params[:begin_date],params[:end_date],params[:player_name],params[:opponent_name],params[:opponent_name],params[:player_name]],
-                         :include => [:black,:white],:limit => 101)
+      @player = Player.find(:first, :conditions => ['login = ?',params[:player_name]])
+      @opponent = Player.find(:first, :conditions => ['login = ?',params[:opponent_name]])
+      if (@player && @opponent)
+      	conditions = 'kifus.updated_at >= ? and kifus.updated_at <= ? and ((kifus.blackid = ? and kifus.whiteid = ?) or (kifus.blackid = ? and kifus.whiteid = ?))'
+      	@kifus = Kifu.find(:all,
+                           :conditions => [conditions,params[:begin_date],params[:end_date],@player.id,@opponent.id,@opponent.id,@player.id],
+                           :limit => 101)
+      end
     end
 
     respond_to do |format|
