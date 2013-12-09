@@ -96,7 +96,7 @@ class Api::KifusController < ApplicationController
     if (params[:opponent_name] == "*")
       @player = Player.find(:first, :conditions => ['login = ?',params[:player_name]])
       if (@player)
-      	conditions = 'kifus.updated_at >= ? and kifus.updated_at <= ? and (kifus.blackid = ? or kifus.whiteid = ?)'
+      	conditions = 'created_at >= ? and created_at <= ? and (blackid = ? or whiteid = ?)'
       	@kifus = Kifu.find(:all,
                            :conditions => [conditions,params[:begin_date],params[:end_date],@player.id,@player.id],
                            :limit => 101)
@@ -105,7 +105,7 @@ class Api::KifusController < ApplicationController
       @player = Player.find(:first, :conditions => ['login = ?',params[:player_name]])
       @opponent = Player.find(:first, :conditions => ['login = ?',params[:opponent_name]])
       if (@player && @opponent)
-      	conditions = 'kifus.updated_at >= ? and kifus.updated_at <= ? and ((kifus.blackid = ? and kifus.whiteid = ?) or (kifus.blackid = ? and kifus.whiteid = ?))'
+      	conditions = 'created_at >= ? and created_at <= ? and ((blackid = ? and whiteid = ?) or (blackid = ? and whiteid = ?))'
       	@kifus = Kifu.find(:all,
                            :conditions => [conditions,params[:begin_date],params[:end_date],@player.id,@opponent.id,@opponent.id,@player.id],
                            :limit => 101)

@@ -1,5 +1,6 @@
 xml.kifus do
   for k in @kifus
+    next unless (k && k.contents)
     lines = k.contents.split("\n")
     xml.kifu do
       xml.id(k.id)
