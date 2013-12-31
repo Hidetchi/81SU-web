@@ -116,5 +116,15 @@ class Api::KifusController < ApplicationController
       format.xml
     end
   end
+
+  def search_tournament
+    raise "invalid params." unless params[:tournament_name].present? && params[:begin_date].present? && params[:end_date].present?
+
+    @kifus = Kifu.find(:all,:include => [:white,:black],:order => "created_at asc",:conditions => ["tournament_name = ? AND created_at >= ? AND created_at <= ?",params[:tournament_name],params[:begin_date],params[:end_date]])
+
+    respond_to do |format|
+      format.xml 
+    end
+  end
   
 end

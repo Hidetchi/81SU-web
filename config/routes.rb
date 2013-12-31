@@ -17,7 +17,7 @@ ActionController::Routing::Routes.draw do |map|
     api.connect '/players/blogparts/:name', :controller => 'players', :action => 'blogparts'
     api.connect '/players/setstyleid/:name/:styleId', :controller => 'players', :action => 'setStyleId'
     api.resources :players, :collection => {:with_login => :get,:authenticate => :get}
-    api.resources :kifus
+    api.resources :kifus, :collection => {:search_tournament => :post}
     api.resources :servers, :collection => {:with_name => :get}
     api.resources :rate_change_histories
   end
