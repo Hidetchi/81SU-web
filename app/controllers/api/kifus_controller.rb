@@ -1,4 +1,6 @@
 class Api::KifusController < ApplicationController
+  skip_before_filter :verify_authenticity_token, :only => [:search_tournament]
+
   # GET /kifus
   # GET /kifus.xml
   def index
