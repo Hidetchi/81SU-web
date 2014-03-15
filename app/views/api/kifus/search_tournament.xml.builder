@@ -2,6 +2,7 @@ xml.kifus do
   for k in @kifus
     next unless (k && k.contents)
     xml.kifu do
+      xml.id(k.id)
       xml.result(k.result)
       xml.black_id(k.whiteid)
       xml.black_name(k.black.login)
