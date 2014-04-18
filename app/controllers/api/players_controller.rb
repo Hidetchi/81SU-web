@@ -118,8 +118,8 @@ class Api::PlayersController < ApplicationController
 
     respond_to do |format|
       format.xml  { render :xml => @player.to_xml(:only => [
-        :avatar_image_url, :country_id, :created_at, :draws34, :exp34, :login,
-        :losses, :losses34, :max_rate, :name, :pr, :rate, :streak, :streak_best,
+        :avatar_image_url, :country_id, :created_at, :draws34, :exp34, :login, :wins10, :losses10, :exp10, :wins55, :losses55, :exp55,
+        :losses, :losses34, :max_rate, :name, :pr, :rate, :streak, :streak_best, :wins56, :losses56, :exp56, :wins_ky, :losses_ky, :exp_ky,
         :updated_at, :wins, :wins34, :city_name, :city_lat, :city_lon, :mileage_total, :mileage_period]) }
     end
   end

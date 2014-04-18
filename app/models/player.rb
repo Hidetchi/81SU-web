@@ -31,6 +31,7 @@ class Player < ActiveRecord::Base
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation, :rate, :country, :wins, :losses, :streak, :streak_best, :max_rate, :latest_ip_address
   attr_accessible :exp34, :wins34, :losses34, :draws34, :city_lat, :city_lon, :city_name, :country_id, :mileage_total, :mileage_available, :mileage_period
+  attr_accessible :exp55, :wins55, :losses55, :exp56, :wins56, :losses56, :exp_ky, :wins_ky, :losses_ky, :exp10, :wins10, :losses10
 
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
