@@ -169,6 +169,9 @@ class Api::PlayersController < ApplicationController
     when "streak"
       @api_players = @api_players.sort_by { |v| - v.rate }
       @api_players = @api_players.sort_by { |v| - v.streak_best }
+    when /^exp(.+)$/
+      @api_players = @api_players.sort_by { |v| - v["wins"+$1] }
+      @api_players = @api_players.sort_by { |v| - v["exp"+$1] }
     else
       @api_players = Array.new
     end
