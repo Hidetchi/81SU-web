@@ -1,22 +1,22 @@
-<div style="font-family:Meiryo UI;">
-<h1>Please login</h1>
+<%= stylesheet_link_tag 'base' %>
+<h1><%=t :'session.title'%></h1>
 
+<div style="margin-left:40px;">
 <div style="color:green"><%= flash[:notice] %></div>
 <div style="color:red"><%= flash[:error] %></div>
-<% form_tag session_path do -%>
-<p><b><%= label_tag 'login' %></b><br />
-<font size="-1">(ハンドルネーム)</font><br />
-<%= text_field_tag 'login', @login %></p>
-
-<p><b><%= label_tag 'password' %></b><br/>
-<font size="-1">(パスワード)</font><br />
-<%= password_field_tag 'password', nil %></p>
-
-<!-- Uncomment this if you want this functionality
-<p><%= label_tag 'remember_me', 'Remember me' %>
-<%= check_box_tag 'remember_me', '1', @remember_me %></p>
--->
-
-<p><%= submit_tag 'Log in' %></p>
 </div>
+<% form_tag session_path do -%>
+
+<center>
+<table bgcolor="#FFFFEE" border="1" bordercolor="#888" cellspacing="0" cellpadding="5" align="center" style="line-height:1.3;">
+<tr>
+<td class="header"><b><%= Player.human_attribute_name("login") %></b><td><%= text_field_tag 'login', @login %>
+<tr>
+<td class="header"><b><%= Player.human_attribute_name("password") %></b><td><%= password_field_tag 'password', nil %>
+</table>
+
+<p><%= submit_tag I18n.t('session.login'), :style => 'width:100px; height:40px; font-size:14pt;' %></p>
+</center>
 <% end -%>
+<br>
+<hr>

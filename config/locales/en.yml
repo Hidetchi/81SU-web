@@ -24,6 +24,47 @@ en:
         
     attributes:
       player:
-        login: "Nickname"
+        login: "81Dojo Nickname"
+        name: "Name"
+        country: "Country"
+        email: "Email"
         rate: "Rating"
-        
+        password: "Password"
+        password_confirmation: "Password confirmation"
+
+  index:
+    title: "81Dojo Account Manager"
+    caption: "Please choose from the menu below to register an account or to edit your existing account."
+
+  new:
+    title: "Registration Form"
+    caption: "Please register a new account for free in the following form."
+    rank: "Rank"
+    ranks: [5-Dan, 4-Dan, 3-Dan, 2-Dan, 1-Dan, 1-kyu, 2-kyu, 3-kyu, 5-kyu, 7-kyu, 9-kyu]
+    submit: "Sign Up"
+    comparison: "See rank table"
+
+  show:
+    title: "My Page"
+    hello1: "Hello, "
+    hello2: ". Thank you for using 81Dojo."
+    registered: "Thanks for signing up! Your account is not activated yet.<br>You will shortly receive an e-mail about the activation process."
+    updated: "Player information was successfully updated."
+    edit: "Edit profile"
+
+  edit:
+    title: "Edit Form"
+    caption: "Fill in only the fields you need to change."
+    location: "Location"
+    latitude: "Latitude"
+    longitude: "Longitude"
+    name: "Name"
+    pr: "Self introduction"
+    password: "Change password"
+    new: "New "
+    update: "Update"
+
+  session:
+    title: "Login Form"
+    login: "Login"
+

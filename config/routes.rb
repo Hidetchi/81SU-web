@@ -23,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.resources :players
 
+  map.connect '/locale/:locale', :controller => 'players', :action => 'index'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

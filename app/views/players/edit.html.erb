@@ -1,32 +1,34 @@
-﻿<h1><u>Edit Form</u></h1>
-<b>Fill in only the fields you need to change.</b><font size="-1"><br><br>(変更する項目のみ入力して下さい)</font>
+﻿<h1><%=t :'edit.title'%></h1>
+<div style="margin-left:40px;"><%=t :'edit.caption'%></div>
+<br>
 <% @player.password = @player.password_confirmation = nil %>
 
 <%= error_messages_for :player %>
 <% form_for(@player) do |f| %>
 
-<br>
-<p><b><font size="+1"><%= h(@player.name) %></font></b></p>
-
-<table border="1" bordercolor="#888" cellspacing="0" cellpadding="5" align="center" style="line-height:1.3;">
+<center>
+<table bgcolor="#FFFFEE" border="1" bordercolor="#888" cellspacing="0" cellpadding="5" align="center" style="line-height:1.3;">
+<tr>
+<td class="header"><b><%= Player.human_attribute_name("login") %></b><td><%= h(@player.name) %>
 <tr>
 <td class="header"><b><%= Player.human_attribute_name("country") %></b><td><%= f.collection_select :country_id, Country.find(:all), :id, :name %>
 <tr>
-<td class="header"><b>Location</b><br><font size="-1">(所在地)</font><td align="left">
-<%= f.text_field :city_lat, :size => 10 %> <b>Latitude</b><font size="-1"> (緯度)</font><br>
-<%= f.text_field :city_lon, :size => 10 %> <b>Longitude</b><font size="-1"> (経度)</font><br>
-<%= f.text_field :city_name, :size => 16 %> <b>Name</b><font size="-1"> (地名)</font>
+<td class="header"><b><%=t :'edit.location'%></b><td align="left">
+<%= f.text_field :city_lat, :size => 10 %> <b><%=t :'edit.latitude'%></b><br>
+<%= f.text_field :city_lon, :size => 10 %> <b><%=t :'edit.longitude'%></b><br>
+<%= f.text_field :city_name, :size => 16 %> <b><%=t :'edit.name'%></b>
 <tr>
-<td class="header"><b>Self Introduction</b><br><font size="-1">(自己紹介)<font><td><%= f.text_area :pr, :cols => 32, :rows => 8 %>
+<td class="header"><b><%=t :'edit.pr'%></b><td><%= f.text_area :pr, :cols => 32, :rows => 8 %>
 <tr>
 <td class="header"><b><%= Player.human_attribute_name("email") %></b><td><%= h(@player.email) %>
 <tr>
-<td class="header"><b>Change Password</b><br><font size="-1">(パスワード変更)</font><td>
-<b>New <%= Player.human_attribute_name("password") %></b><br>
+<td class="header"><b><%=t :'edit.password'%></b><td>
+<b><%=t :'edit.new'%><%= Player.human_attribute_name("password") %></b><br>
 <%= f.password_field :password %><br>
 <b><%= Player.human_attribute_name("password_confirmation") %></b><br>
 <%= f.password_field :password_confirmation %>
 </table>
 
-<p><%= submit_tag 'Update', :style => 'width:100px; height:40px; font-size:14pt;' %><br><font size="-1">(更新)</font></p>
+<p><%= submit_tag I18n.t('edit.update'), :style => 'width:100px; height:40px; font-size:14pt;' %></p>
+</center>
 <% end -%>

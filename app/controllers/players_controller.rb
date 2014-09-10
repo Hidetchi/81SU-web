@@ -3,9 +3,10 @@ class PlayersController < ApplicationController
   include AuthenticatedSystem
   layout 'base'
   before_filter :login_required, :only => [:show,:edit]
-  before_filter :localize_if_possible, :only => [:show,:edit,:create]
+#  before_filter :localize_if_possible, :only => [:show,:edit,:create]
 
   def index
+    I18n.locale = params[:locale] if params[:locale]
     if params[:login].present?
       @player = Player.find_by_login(params[:login])
     end
@@ -44,7 +45,7 @@ class PlayersController < ApplicationController
           @player.pr = params[:player][:pr]
         end
         @player.save
-        flash[:notice] = 'Player was successfully updated.'
+        flash[:notice] = 'Update successful'
         format.html { redirect_to(@player) }
       else
         format.html { render :action => "edit" }
@@ -71,7 +72,7 @@ class PlayersController < ApplicationController
       Notification.deliver_registered(@player)
       self.current_player = @player # !! now logged in
       redirect_back_or_default(@player)
-      flash[:notice] = "Thanks for signing up! Your account is not activated yet.<br>You will shortly receive an e-mail about the activation process."
+      flash[:notice] = "Registration successful"
     else
       flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
       render :action => 'new'

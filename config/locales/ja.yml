@@ -170,13 +170,14 @@ ja:
       less_than_or_equal_to: "は%{count}以下の値にしてください。"
       odd: "は奇数にしてください。"
       even: "は偶数にしてください。"
+      email_invalid: "は不正な値です。"
 
   activerecord:
     errors:
       template:
         header:
-          one:   "%{model}にエラーが発生しました。"
-          other: "%{model}に%{count}つのエラーが発生しました。"
+          one:   "エラーが発生しました。"
+          other: "エラーが発生しました。"
         body: "次の項目を確認してください。"
 
       messages:
@@ -193,6 +194,44 @@ ja:
         login: "ハンドルネーム"
         name: "名前"
         country: "国名"
+        email: "メールアドレス"
         rate: "レーティング"
         password: "パスワード"
-        password_confirmation: "パスワード(確認)"
+        password_confirmation: "パスワード再入力"
+
+  index:
+    title: "81道場 アカウント管理メニュー"
+    caption: "アカウントの登録、および変更は下記メニューよりお進み下さい"
+
+  new:
+    title: "新規登録フォーム"
+    caption: "以下のフォームよりご登録下さい。登録および道場のご利用は、一切無料です。"
+    rank: "段級位"
+    ranks: [五段, 四段, 三段, 二段, 初段, 1級, 2級, 3級, 5級, 7級, 9級]
+    submit: "登録"
+    comparison: "将棋倶楽部24とのレート対応表"
+
+  show:
+    title: "マイページ"
+    hello1: ""
+    hello2: "様、81道場のご利用ありがとうございます"
+    registered: "仮登録ありがとうございます。本登録への認証用のメールをお送りしました。"
+    updated: "登録情報を更新しました。"
+    edit: "登録情報の編集"
+
+
+  edit:
+    title: "登録情報変更"
+    caption: "変更する項目のみ入力して下さい"
+    location: "所在地"
+    latitude: "緯度"
+    longitude: "経度"
+    name: "地名"
+    pr: "自己紹介"
+    password: "パスワード変更"
+    new: "新しい"
+    update: "更新"
+
+  session:
+    title: "ログインフォーム"
+    login: "ログイン"

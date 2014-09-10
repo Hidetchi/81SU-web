@@ -1,13 +1,9 @@
-﻿<div style="font-size:36px;font-weight:bold;"><u>Account Manager</u></div>
-<div style="font-size:20px;margin-top:8px;">(アカウント管理メニュー)</div>
+﻿<h1><%=t :'index.title' %></h1>
+<div style="margin-left:40px;"><%=t :'index.caption' %></div>
 <br>
-<br>
-<div style="color:green"><%= flash[:error] %></div>
+<center>
 <%= link_to image_tag("sign_up.gif",:alt=>"Sign Up"), '/signup' %>
 <br>
 <br>
 <%= link_to image_tag("edit_profile.gif",:alt=>"View/Edit"), '/login' %>
-<br>
-<br>
-<hr>
-<iframe width=100% height="1600" frameborder=0 scrolling="no" src="http://81dojo.com/screenshots.html" allowtransparency="true">
+</center>

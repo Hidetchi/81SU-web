@@ -1,19 +1,22 @@
-<h2>Hello, <%= @player.name %>. </h2><br/>
-<div style="color:green"><%= flash[:notice] %>
-<% if (flash[:notice] && flash[:notice].match(/^Thanks\sfor\ssigning/)) %>
-<br>(仮登録ありがとうございます。本登録への認証用のメールをお送りしました。)
+<h1><%=t :'show.title'%></h1>
+<div style="margin-left:40px;"><h2><%=t :'show.hello1'%><%= @player.name %><%=t :'show.hello2'%></h2>
+<div style="color:green">
+<% if (flash[:notice] && flash[:notice] == "Registration successful") %>
+<%=t :'show.registered'%>
+<% end %>
+<% if (flash[:notice] && flash[:notice] == "Update successful") %>
+<%=t :'show.updated'%>
 <% end %>
 </div>
-
+</div>
 <div class="container">
-<table width=100% border="1" bordercolor="#888" cellspacing="0" cellpadding="5" align="center">
+<table bgcolor="#FFFFEE" width=100% border="1" bordercolor="#888" cellspacing="0" cellpadding="5" align="center">
 <tr>
-<td class="header"><b>81Dojo <%= Player.human_attribute_name("login") %></b><td align="center"><%= @player.name %>
+<td class="header"><b><%= Player.human_attribute_name("login") %></b><td align="center"><%= @player.name %>
 <tr>
 <td class="header"><b><%= Player.human_attribute_name("country") %></b><td align="center"><%= @player.country ? @player.country.name : '' %>
 <tr>
 <td class="header"><b><%= Player.human_attribute_name("rate") %></b><td align="center"><%= sprintf("%.2f",@player.rate) %>
 </table>
 </div>
-<div style="font-size:24px"><%= link_to 'Edit',edit_player_path(@player) %></div>
-<div style="font-size:15px; margin-top:5px;">(登録情報の変更)</div>
+<div style="font-size:24px;text-align:center;"><%= link_to I18n.t('show.edit'),edit_player_path(@player) %></div>

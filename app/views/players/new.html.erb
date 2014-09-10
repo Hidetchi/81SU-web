@@ -1,24 +1,25 @@
-<h2><u>Sign up as a new user</u></h2>
-<h4>新規無料登録 (登録後すぐ対局出来ます)</h4>
+<h1><%=t :'new.title'%></h1>
+<div style="margin-left:40px;"><%=t :'new.caption'%>
+<br><br>
 <% @player.password = @player.password_confirmation = nil %>
 
-<%= error_messages_for :player %>
+<font color=red><%= error_messages_for :player %></font></div>
 <% form_for :player, :url => players_path do |f| -%>
-<table border="1" bordercolor="#888" cellspacing="0" cellpadding="5" align="center" style="line-height: 1.3;">
+<table bgcolor="#FFFFEE" border="1" bordercolor="#888" cellspacing="0" cellpadding="5" align="center" style="line-height: 1.3;">
 <tr>
-<td class="header"><b>81Dojo Nickname</b><br><font size="-1">(ハンドルネーム)</font><td><%= f.text_field :login %>
+<td class="header"><b><%=t :'activerecord.attributes.player.login' %></b><td><%= f.text_field :login %>
 <tr>
-<td class="header"><b><%= label_tag 'country' %></b><br><font size="-1">(国名 ※日本はJapanのまま)</font><td><%= f.collection_select :country_id, Country.find(:all), :id, :name, :selected => 109 %>
+<td class="header"><b><%=t :'activerecord.attributes.player.country' %></b><td><%= f.collection_select :country_id, Country.find(:all), :id, :name, :selected => 109 %>
 <tr>
-<td class="header"><b>Rank</b><br><font size="-1">(段級位)</font><td><%= f.select :rate, [["5-Dan",2050],["4-Dan",1925],["3-Dan",1790],["2-Dan",1690],["1-Dan",1590],["1-kyu",1480],["2-kyu",1400],["3-kyu",1340],["5-kyu",1240],["7-kyu",1140],["9-kyu",1040]], :selected => 1590 %>
-<br><font size="-1"><a href="http://81dojo.com/documents/Rating_System" target="_blank">＞＞将棋倶楽部24とのレート対応表＜＜</a></font>
+<td class="header"><b><%=t :'new.rank' %></b><td><%= f.select :rate, [[I18n.t('new.ranks')[0],2050],[I18n.t('new.ranks')[1],1925],[I18n.t('new.ranks')[2],1790],[I18n.t('new.ranks')[3],1690],[I18n.t('new.ranks')[4],1590],[I18n.t('new.ranks')[5],1480],[I18n.t('new.ranks')[6],1400],[I18n.t('new.ranks')[7],1340],[I18n.t('new.ranks')[8],1240],[I18n.t('new.ranks')[9],1140],[I18n.t('new.ranks')[10],1040]], :selected => 1590 %>
+<font size="-1"><a href="http://81dojo.com/documents/Rating_System" target="_blank">　＞＞<%=t :'new.comparison'%>＜＜</a></font>
 <tr>
-<td class="header"><b><%= label_tag 'email' %></b><br><font size="-1">(メールアドレス)</font><td><%= f.text_field :email %>
+<td class="header"><b><%=t :'activerecord.attributes.player.email' %></b><td><%= f.text_field :email %>
 <tr>
-<td class="header"><b><%= label_tag 'password' %></b><br><font size="-1">(パスワード)</font><td><%= f.password_field :password %>
+<td class="header"><b><%=t :'activerecord.attributes.player.password' %></b><td><%= f.password_field :password %>
 <tr>
-<td class="header"><b><%= label_tag 'password_confirmation' %></b><br><font size="-1">(パスワード再入力)</font><td><%= f.password_field :password_confirmation %>
+<td class="header"><b><%=t :'activerecord.attributes.player.password_confirmation' %></b><td><%= f.password_field :password_confirmation %>
 </table>
-
-<p><%= submit_tag 'Sign up', :style => 'width:100px; height:40px; font-size:14pt;' %><br><font size="-1">(登録)</font></p>
+<br>
+<center><%= submit_tag I18n.t('new.submit'), :style => 'width:100px; height:40px; font-size:14pt;' %></center>
 <% end -%>
