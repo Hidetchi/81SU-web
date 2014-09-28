@@ -68,3 +68,11 @@ en:
     title: "Login Form"
     login: "Login"
 
+  activate:
+    title: "Thank you for registering!"
+    hello1: "Hello "
+    hello2: ","
+    msg1: "Thank you for registering to 81Dojo."
+    msg2: "Your account is not activated yet. Please click the link below to activate it."
+    msg3: "Please delete this email if you believe you are not the intended recipient."
+

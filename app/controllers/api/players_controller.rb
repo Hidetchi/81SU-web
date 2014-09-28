@@ -227,6 +227,23 @@ class Api::PlayersController < ApplicationController
     end
   end
 
+  def reset_pass
+    @player = Player.find(:first, :conditions => ['login = ?',params[:code1]])
+    if (!@player)
+      @result = "error"
+    elsif (@player.email == params[:code2].to_s)
+      Notification.deliver_reset_pass_url(@player, request.remote_ip)
+      @result = "success1"
+    elsif (@player.salt[20,20] == params[:code2].to_s)
+      newpass = (("a".."z").to_a + ("A".."Z").to_a + (0..9).to_a).shuffle[0..7].join
+      @player.update_attribute(:password, newpass)
+      Notification.deliver_reset_pass_done(@player, request.remote_ip, newpass)
+      @result = "success2"
+    else
+      @result = "error"
+    end
+  end
+
   def authenticate
     logout_keeping_session!
     if @player = Player.authenticate(params[:login], params[:password])

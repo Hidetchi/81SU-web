@@ -1,14 +1,7 @@
-Dear <%= @name %>,
+<%=t :'activate.hello1'%><%= @name %><%=t :'activate.hello2'%>
 
-Thank you for registering to 81Dojo.
-Your account is not activated yet. Please click the link below to activate it.
-http://81dojo.com/dojo/users/activate.php?name=<%= @name.downcase %>&key=<%= @key %>
-
-
-<%= @name %>様
-
-81道場にご登録頂き誠に有難うございます。
-お客様のアカウントは仮登録の状態です。本登録を完了するには、下記のリンクをクリックして認証を行って下さい。
+<%=t :'activate.msg1'%>
+<%=t :'activate.msg2'%>
 http://81dojo.com/dojo/users/activate.php?name=<%= @name.downcase %>&key=<%= @key %>
 
 
@@ -17,4 +10,4 @@ http://81dojo.com/dojo/users/activate.php?name=<%= @name.downcase %>&key=<%= @ke
 info@81dojo.com
 http://81dojo.com/
 
-*Please delete this email if you believe you are not the intended recipient.
+* <%=t :'activate.msg3'%>

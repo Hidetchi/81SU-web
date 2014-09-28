@@ -1,0 +1,18 @@
+Dear <%= @name %>,
+
+We have received a password reset request from <%= @ip %>. To change your password, please click the following link.
+http://81dojo.com/dojo/users/reset_pass.php?name=<%= @name.downcase %>&key=<%= @key %>
+
+
+<%= @name %>様
+
+パスワードリセットの申請を<%= @ip %>より承りました。下記のリンクをクリックするとパスワードをリセット致します。
+http://81dojo.com/dojo/users/reset_pass.php?name=<%= @name.downcase %>&key=<%= @key %>
+
+
+-----------------
+81Dojo
+info@81dojo.com
+http://81dojo.com/
+
+*Please delete this email if you believe you are not the intended recipient.
