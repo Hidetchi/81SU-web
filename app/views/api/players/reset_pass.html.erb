@@ -1,12 +1,12 @@
 ﻿<center>
 <% if @result == 'error' %>
-Error due to information mismatch.
+Error due to information mismatch.<br><br>
 データ不整合によるエラーが発生しました。
 <% elsif @result == 'success1' %>
-An e-mail has been sent to you, explaining the password reset procedure.
+An e-mail has been sent to you, explaining the password reset procedure.<br><br>
 パスワード変更のご案内をメールで送信しました。
 <% elsif @result == 'success2' %>
-The password has been reset successfully. The new password is sent to you via e-mail.
+The password has been reset successfully. The new password is sent to you via e-mail.<br><br>
 パスワードをリセットしました。新しいパスワードをメールで送信しました。
 <% end %>
 </center>
