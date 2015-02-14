@@ -35,6 +35,8 @@ en:
   index:
     title: "81Dojo Account Manager"
     caption: "Please choose from the menu below to register an account or to edit your existing account."
+    signup: "Sign Up"
+    edit: "View/Edit Profile"
 
   new:
     title: "Registration Form"
@@ -75,4 +77,9 @@ en:
     msg1: "Thank you for registering to 81Dojo."
     msg2: "Your account is not activated yet. Please click the link below to activate it."
     msg3: "Please delete this email if you believe you are not the intended recipient."
+    already: "Your account is already activated."
+    activated1: "Your account has been successfully activated. Please go to the top page and launch the app."
+    activated2: "We hope you will enjoy playing shogi at 81Dojo."
+    top: "81Dojo top page"
+    top_extension: "en"
 

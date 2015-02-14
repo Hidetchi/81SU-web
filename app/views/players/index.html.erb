@@ -1,9 +1,9 @@
 ﻿<h1><%=t :'index.title' %></h1>
 <div style="margin-left:40px;"><%=t :'index.caption' %></div>
 <br>
+<br>
 <center>
-<%= link_to image_tag("sign_up.gif",:alt=>"Sign Up"), '/signup' %>
+<%= link_to I18n.t('index.signup'), '/signup', :class => 'button' %>
 <br>
-<br>
-<%= link_to image_tag("edit_profile.gif",:alt=>"View/Edit"), '/login' %>
+<%= link_to I18n.t('index.edit'), '/login', :class => 'button' %>
 </center>

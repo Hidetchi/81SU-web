@@ -214,6 +214,7 @@ class Api::PlayersController < ApplicationController
   end
 
   def activate
+    I18n.locale = params[:locale]
     @player = Player.find(:first, :conditions => ['login = ?',params[:code1]])
     if (!@player || @player.salt[20,20] != params[:code2])
       render "activate_error"

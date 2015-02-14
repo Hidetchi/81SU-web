@@ -1,0 +1,84 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+zh:
+  hello: "Hello world"
+  
+  errors:
+    format: "%{attribute} %{message}"
+  
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   "An error occurred in %{model}."
+          other: "%{count} errors occurred in %{model}."
+        body: "Please check the following points."
+        
+      messages:
+        too_long: "must be no longer than %{count} characters."
+        too_short: "must be no shorter than %{count} characters."
+      
+      full_messages:
+        format: "%{attribute} %{message}"
+        
+    attributes:
+      player:
+        login: "用户名"
+        name: "Name"
+        country: "国家"
+        email: "邮箱"
+        rate: "级别"
+        password: "密码"
+        password_confirmation: "再次输入密码"
+
+  index:
+    title: "81道场 用户管理菜单"
+    caption: "用户注册以及变更请按照下述步骤进行。"
+    signup: "新用户免费注册"
+    edit: "注册信息的确认更改"
+
+  new:
+    title: "新用户注册页面"
+    caption: "通过以下页面进行注册。注册以及道场使用，均为免费。"
+    rank: "段级级别"
+    ranks: [五段, 四段, 三段, 二段, 初段, 1级, 2级, 3级, 5级, 7级, 9级]
+    submit: "注册"
+    comparison: "将棋俱乐部24的对应表"
+
+  show:
+    title: "我的主页"
+    hello1: ""
+    hello2: "先生/女士，感谢您使用81道场。"
+    registered: "感谢注册。已发送注册确认邮件至您的邮箱。"
+    updated: "Player information was successfully updated."
+    edit: "注册信息的确认更改"
+
+  edit:
+    title: "Edit Form"
+    caption: "Fill in only the fields you need to change."
+    location: "Location"
+    latitude: "Latitude"
+    longitude: "Longitude"
+    name: "Name"
+    pr: "Self introduction"
+    password: "Change password"
+    new: "New "
+    update: "Update"
+
+  session:
+    title: "Login Form"
+    login: "Login"
+
+  activate:
+    title: "感谢注册"
+    hello1: ""
+    hello2: "先生/女士"
+    msg1: "感谢注册81道场。"
+    msg2: "您的用户处于临时注册状态。正式完成此次注册，请点击下面链接完成认证。"
+    msg3: "如果您没有进行过注册请删除此邮件。"
+    already: "Your account is already activated."
+    activated1: "用户注册已完成。"
+    activated2: "请从首页进入启动程序，祝您在81道场愉快。"
+    top: "81道场 中文首页"
+    top_extension: "cn"

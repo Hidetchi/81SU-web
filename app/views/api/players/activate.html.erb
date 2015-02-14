@@ -1,14 +1,11 @@
-﻿<center>
-<h2>Hello <%= @player.name %>,</h2>
+﻿<center style='font-family:Meiryo UI;'>
+<h2><%=t :'activate.hello1' %><%= @player.name %><%=t :'activate.hello2' %></h2>
 <br>
 <% if @already then %>
-Your account is already activated.<br><br>
-お客様のアカウントは、既にアクティベート(本登録)が完了しています。
+<%=t :'activate.already' %>
 <% else %>
-Your account has been successfully activated. Please go to the top page and launch the app.<br>We hope you will enjoy playing shogi at 81Dojo.<br><br>
-アカウントのアクティベート(本登録)が完了しました。<br>トップページからアプリを起動し、81道場をお楽しみ下さい。
+<%=t :'activate.activated1' %><br><%=t :'activate.activated2' %>
 <% end %>
-<br><br><br>
-<p style="font-size:20px"><%= link_to '81Dojo top page', 'http://81dojo.com/' %></p>
-<p style="font-size:20px"><%= link_to '81道場 日本語トップページへ', 'http://81dojo.com/jp' %></p>
+<br><br>
+<p style="font-size:20px"><%= link_to I18n.t('activate.top'), 'http://81dojo.com/' + I18n.t('activate.top_extension') %></p>
 </center>
