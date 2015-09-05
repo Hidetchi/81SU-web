@@ -34,7 +34,7 @@ en:
 
   index:
     title: "81Dojo Account Manager"
-    caption: "Please choose from the menu below to register an account or to edit your existing account."
+    caption: "Select from the menu below to register or edit an account."
     signup: "Sign Up"
     edit: "View/Edit Profile"
 
