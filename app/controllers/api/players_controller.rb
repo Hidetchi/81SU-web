@@ -236,7 +236,7 @@ class Api::PlayersController < ApplicationController
       Notification.deliver_reset_pass_url(@player, request.remote_ip)
       @result = "success1"
     elsif (@player.salt[20,20] == params[:code2].to_s)
-      newpass = (("a".."z").to_a + ("A".."Z").to_a + (0..9).to_a).shuffle[0..7].join
+      newpass = (("a".."z").to_a + ("A".."Z").to_a + (0..9).to_a).shuffle[0..15].join
       @player.update_attribute(:password, newpass)
       Notification.deliver_reset_pass_done(@player, request.remote_ip, newpass)
       @result = "success2"

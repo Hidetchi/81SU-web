@@ -50,9 +50,10 @@ en:
     title: "My Page"
     hello1: "Hello, "
     hello2: ". Thank you for using 81Dojo."
-    registered: "Thanks for signing up! Your account is not activated yet.<br>You will shortly receive an e-mail about the activation process."
+    registered: "Thanks for signing up! Your account is not activated yet.<br>An e-mail about the activation process has just been sent to you."
     updated: "Player information was successfully updated."
     edit: "Edit profile"
+    resend: "Resend activation e-mail"
 
   edit:
     title: "Edit Form"

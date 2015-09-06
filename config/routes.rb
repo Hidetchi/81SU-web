@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'players', :action => 'create'
   map.signup '/signup', :controller => 'players', :action => 'new'
+  map.resend '/resend', :controller => 'players', :action => 'resend_activate'
 
   map.namespace :api do |api|
     api.connect '/players/search/:name', :controller => 'players', :action => 'search'

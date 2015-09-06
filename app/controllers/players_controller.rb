@@ -69,7 +69,7 @@ class PlayersController < ApplicationController
       # protection if visitor resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
       # reset session
-      Notification.deliver_registered(@player)
+      Notification.deliver_registered(@player) unless banned?(@player)
       self.current_player = @player # !! now logged in
       redirect_back_or_default(@player)
       flash[:notice] = "Registration successful"
@@ -79,7 +79,19 @@ class PlayersController < ApplicationController
     end
   end
 
+  def resend_activate
+    if (current_player && current_player.auth_token == nil)
+      Notification.deliver_registered(current_player) unless banned?(current_player)
+      flash[:notice] = "Registration successful"
+      redirect_back_or_default(current_player)
+    end
+  end
+
   private
+  def banned?(player)
+    return false
+  end
+  
   def localize_if_possible
     country_to_locale = {109 => :ja}
     country_id = params[:player] ? params[:player][:country_id].to_i : current_player && current_player.country ? current_player.country.id : nil
